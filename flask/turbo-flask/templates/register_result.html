@@ -1,0 +1,25 @@
+<turbo-stream action="prepend" target="users_list">
+    <template>
+        {% from '_macros.html' import user_row %}
+        
+        {{ user_row(user) }}
+    </template>
+</turbo-stream>
+
+<turbo-stream action="update" target="result">
+    <template>
+        {% for category, msg in get_flashed_messages(with_categories=True) %}
+            <div class="alert alert-{{ category }}">{{ msg }}</div>
+        {% endfor %}
+        
+        {% if form.errors %}
+            <div class="alert alert-danger">
+            {% for field, messages in form.errors.items() %}
+                {% for message in messages %}
+                    {{ field }} - {{ message }}
+                {% endfor %}
+            {% endfor %}
+            </div>
+        {% endif %}
+    </template>        
+</turbo-stream>

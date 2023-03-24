@@ -1,0 +1,4 @@
+{% from '_macros.html' import print_name %}
+{% for name in names %}
+    {{ print_name(name) }}
+{% endfor %}

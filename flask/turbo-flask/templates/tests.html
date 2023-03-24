@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="border mt-3 p-5">   
+        <turbo-frame id="about_name">
+            Contents of data-frame with id="about_name" in page <a href="/about" data-turbo=false>about</a> will be placed here if you click 
+            
+            <a href="/about">This link</a>
+        </turbo-frame>    
+    </div>
+    
+    <hr>
+    
+    <a href="/about" data-turbo-frame="contact_info">/about page #contact_info turbo-frame</a>
+    <div class="border mt-3 p-5">
+        <turbo-frame id="contact_info">
+            Contents of data-frame with id="contact_info" in page "/about" will be placed here if you click above link
+        </turbo-frame> 
+    </div>
+    
+    <hr>
+    
+    <turbo-frame id="eager_loading" src="/eager_loading">
+        <div class="spinner-border text-danger"></div>
+    </turbo-frame>        
+{% endblock %}

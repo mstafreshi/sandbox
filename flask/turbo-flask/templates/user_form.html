@@ -1,0 +1,14 @@
+<form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-control") }}
+                {% for error in form.username.errors %}
+                    {{ error }} <br>
+                {% endfor %}
+        </div>
+        
+        <div class="mt-2">
+            {{ form.submit(class="btn btn-primary") }}       
+        </div>
+</form>
